@@ -64,3 +64,21 @@ class Option(UpdateCreateDate):
 
     def __str__(self):
         return self.option_text
+    
+class  ResultOfQuiz(UpdateCreateDate):
+    SCALE = (
+        ('poor', 'poor'),
+        ('medium', 'medium'),
+        ('normal', 'normal'),
+        ('good', 'good'),
+        ('perfect', 'perfect')
+    )
+    name = models.CharField(max_length=50, verbose_name='Student Name')
+    correct = models.CharField(max_length=30)
+    wrong= models.CharField(max_length=15)
+    emty = models.CharField(max_length=200)
+    score = models.CharField(max_length=200)
+    status = models.CharField(max_length=20, choices=SCALE)
+
+    def __str__(self):
+        return self.status

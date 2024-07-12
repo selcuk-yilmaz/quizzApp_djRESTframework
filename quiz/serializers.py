@@ -3,7 +3,8 @@ from .models import (
     Category,
     Quiz,
     Question,
-    Option
+    Option,
+    ResultOfQuiz
 )
 
 
@@ -54,7 +55,18 @@ class QuestionSerializer(serializers.ModelSerializer):
             'difficulty'
         )
 
-
+class ResultSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ResultOfQuiz
+        fields = (
+            'id',
+            'name',
+            'correct',
+            'wrong',
+            'emty',
+            'score',
+            'status'
+        )
 # title = models.TextField()
 #     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
 #     difficulty = models.CharField(max_length=1, choices=SCALE)

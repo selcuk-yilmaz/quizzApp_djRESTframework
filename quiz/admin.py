@@ -4,7 +4,8 @@ from .models import (
     Category,
     Quiz,
     Question,
-    Option
+    Option,
+    ResultOfQuiz,
 )
 
 
@@ -29,3 +30,4 @@ admin.site.register(Category)
 admin.site.register(Quiz, QuizAdmin)
 admin.site.register(Question)
 admin.site.register(Option)
+admin.site.register(ResultOfQuiz)
