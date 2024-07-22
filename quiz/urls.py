@@ -3,12 +3,13 @@ from .views import (
     CategoryList,
     QuizList,
     QuestionList,
-    ResultsGetPost
+    ResultsGetPost,
+    PhotoViewSet
 )
 from rest_framework import routers
 router=routers.DefaultRouter()
 router.register('results',ResultsGetPost)
-
+router.register(r'photos', PhotoViewSet)
 
 
 urlpatterns = [

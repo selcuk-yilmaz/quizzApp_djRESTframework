@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'dj_rest_auth',
     'django_filters',
+    'cloudinary',
+    # 'cloudinary_storage',
 
 
     # third party
@@ -134,3 +136,24 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+import cloudinary
+# Cloudinary ayarlarını .env dosyasından okuyun
+CLOUDINARY = {
+    'cloud_name': config('CLOUDINARY_CLOUD_NAME'),
+    'api_key': config('CLOUDINARY_API_KEY'),
+    'api_secret': config('CLOUDINARY_API_SECRET')
+}
+
+# Cloudinary'yi yapılandırın
+cloudinary.config(
+    cloud_name=CLOUDINARY['cloud_name'],
+    api_key=CLOUDINARY['api_key'],
+    api_secret=CLOUDINARY['api_secret'],
+    secure=True
+)
+
+# Media settings
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

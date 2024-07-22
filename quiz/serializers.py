@@ -70,3 +70,23 @@ class ResultSerializer(serializers.ModelSerializer):
 # title = models.TextField()
 #     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
 #     difficulty = models.CharField(max_length=1, choices=SCALE)
+from .models import Photo
+
+class PhotoSerializer(serializers.ModelSerializer):
+    image = serializers.ImageField(write_only=True)
+
+    class Meta:
+        model = Photo
+        fields = ['id', 'name', 'description', 'url', 'image']
+        read_only_fields = ['url']
+
+# from rest_framework import serializers
+from .models import Photo
+
+class PhotoSerializer(serializers.ModelSerializer):
+    image = serializers.ImageField(write_only=True,required=False)  # Dosya yüklemeleri için
+
+    class Meta:
+        model = Photo
+        fields = ['id', 'name', 'description', 'url', 'image']
+        read_only_fields = ['url']        

@@ -82,3 +82,12 @@ class  ResultOfQuiz(UpdateCreateDate):
 
     def __str__(self):
         return self.status
+
+class Photo(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    url = models.URLField(max_length=200)
+    # image_id = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
